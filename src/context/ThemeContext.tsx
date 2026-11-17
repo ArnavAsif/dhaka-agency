@@ -21,7 +21,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     setMounted(true);
     try {
-      const saved = localStorage.getItem('fplus-theme') as Theme | null;
+      const saved = (localStorage.getItem('dhaka-theme') || localStorage.getItem('fplus-theme')) as Theme | null;
       if (saved === 'light') {
         setTheme('light');
         document.documentElement.classList.add('theme-light');
@@ -36,7 +36,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     setTheme((prev) => {
       const next: Theme = prev === 'dark' ? 'light' : 'dark';
       try {
-        localStorage.setItem('fplus-theme', next);
+        localStorage.setItem('dhaka-theme', next);
         if (next === 'light') {
           document.documentElement.classList.add('theme-light');
         } else {

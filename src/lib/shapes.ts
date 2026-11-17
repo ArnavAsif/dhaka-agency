@@ -10,17 +10,20 @@ export interface ShapeInfo {
 }
 
 export const SHAPE_COLORS: Record<string, Color> = {
-  wheel: new Color('#1c2f52'),
-  glasses: new Color('#141416'),
-  pen: new Color('#402d18'),
-  bottle: new Color('#163a28'),
-  default: new Color('#22363e'),
+  eighteen: new Color('#250a0d'),
+  glasses: new Color('#200a0d'),
+  wheel: new Color('#0f0f14'),
+  pen: new Color('#18080a'),
+  bottle: new Color('#111116'),
+  default: new Color('#0d0d10'),
 };
 
 export const SHAPE_PARTICLE_TINT: Record<string, Color> = {
-  wheel: new Color('#a8c3f0'),
-  pen: new Color('#ecc78e'),
-  bottle: new Color('#93d9ac'),
+  eighteen: new Color('#991b1b'),
+  glasses: new Color('#991b1b'),
+  wheel: new Color('#ffffff'),
+  pen: new Color('#b91c1c'),
+  bottle: new Color('#ffffff'),
   default: new Color('#ffffff'),
 };
 

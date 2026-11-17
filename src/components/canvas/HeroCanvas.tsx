@@ -45,9 +45,9 @@ export function HeroCanvas() {
     envCanvas.height = 512;
     const ctx = envCanvas.getContext('2d')!;
     const bgGrad = ctx.createLinearGradient(0, 0, 0, 512);
-    bgGrad.addColorStop(0, '#6f97a3');
-    bgGrad.addColorStop(0.42, '#31505b');
-    bgGrad.addColorStop(1, '#12222a');
+    bgGrad.addColorStop(0, '#22080c');
+    bgGrad.addColorStop(0.42, '#0e0e12');
+    bgGrad.addColorStop(1, '#050507');
     ctx.fillStyle = bgGrad;
     ctx.fillRect(0, 0, 1024, 512);
 
@@ -58,9 +58,9 @@ export function HeroCanvas() {
       ctx.fillStyle = g;
       ctx.fillRect(0, 0, 1024, 512);
     };
-    drawRadial(300, 150, 260, 'rgba(219,176,87,0.55)');
-    drawRadial(760, 220, 240, 'rgba(138,203,193,0.5)');
-    drawRadial(520, 60, 180, 'rgba(255,255,255,0.85)');
+    drawRadial(300, 150, 260, 'rgba(153,27,27,0.45)');
+    drawRadial(760, 220, 240, 'rgba(185,28,28,0.25)');
+    drawRadial(520, 60, 180, 'rgba(255,255,255,0.7)');
 
     const envTexture = new THREE.CanvasTexture(envCanvas);
     envTexture.mapping = THREE.EquirectangularReflectionMapping;
@@ -68,7 +68,7 @@ export function HeroCanvas() {
     // Sky sphere
     const skySphere = new THREE.Mesh(
       new THREE.SphereGeometry(40, 48, 48),
-      new THREE.MeshBasicMaterial({ map: envTexture, side: THREE.BackSide, color: 0x2f434c })
+      new THREE.MeshBasicMaterial({ map: envTexture, side: THREE.BackSide, color: 0x0a0a0c })
     );
     skySphere.renderOrder = -2;
     scene.add(skySphere);
@@ -174,8 +174,8 @@ export function HeroCanvas() {
     const starCount = widthFn() < 700 ? 560 : 950;
     const starPos = new Float32Array(starCount * 3);
     const starCol = new Float32Array(starCount * 3);
-    const colGold = new THREE.Color('#dbb057');
-    const colTeal = new THREE.Color('#8acbc1');
+    const colDarkRed = new THREE.Color('#991b1b');
+    const colDeepWine = new THREE.Color('#7f1d1d');
     const colWhite = new THREE.Color('#ffffff');
 
     for (let G = 0; G < starCount; G++) {
@@ -184,7 +184,7 @@ export function HeroCanvas() {
       starPos[G * 3] = (Math.random() - 0.5) * 2 * spread;
       starPos[G * 3 + 1] = (Math.random() - 0.5) * 2 * spread;
       starPos[G * 3 + 2] = z;
-      const c = Math.random() < 0.33 ? colGold : Math.random() < 0.5 ? colTeal : colWhite;
+      const c = Math.random() < 0.28 ? colDarkRed : Math.random() < 0.45 ? colDeepWine : colWhite;
       starCol[G * 3] = c.r;
       starCol[G * 3 + 1] = c.g;
       starCol[G * 3 + 2] = c.b;
@@ -210,8 +210,8 @@ export function HeroCanvas() {
       uniforms: {
         uTime: { value: 0 },
         uAspect: { value: widthFn() / heightFn() },
-        uTeal: { value: new THREE.Color('#5a8aa2') },
-        uGold: { value: new THREE.Color('#dbb057') },
+        uTeal: { value: new THREE.Color('#1c0608') },
+        uGold: { value: new THREE.Color('#7f1d1d') },
         uAmp: { value: 0.12 },
         uZoom: { value: 1 },
       },
@@ -281,16 +281,16 @@ export function HeroCanvas() {
     scene.add(smokeMesh);
 
     // Lights
-    scene.add(new THREE.AmbientLight(0xffffff, 0.35));
-    const dirLight1 = new THREE.DirectionalLight(0xdbb057, 2.2);
+    scene.add(new THREE.AmbientLight(0xffffff, 0.45));
+    const dirLight1 = new THREE.DirectionalLight(0x991b1b, 2.5);
     dirLight1.position.set(4, 3, 5);
     scene.add(dirLight1);
 
-    const dirLight2 = new THREE.DirectionalLight(0x8acbc1, 1.8);
+    const dirLight2 = new THREE.DirectionalLight(0xffffff, 1.6);
     dirLight2.position.set(-5, -2, 2);
     scene.add(dirLight2);
 
-    const dirLight3 = new THREE.DirectionalLight(0xffffff, 1.2);
+    const dirLight3 = new THREE.DirectionalLight(0xb91c1c, 1.2);
     dirLight3.position.set(0, 4, -4);
     scene.add(dirLight3);
 
@@ -345,8 +345,8 @@ export function HeroCanvas() {
     const currentPoints: THREE.Vector3[] = shapes['fplus'].map((p) => p.clone());
     const tempDisplacement = new Float32Array(pt * 3);
 
-    const currentColor = new THREE.Color('#22363e');
-    const targetColor = new THREE.Color('#22363e');
+    const currentColor = new THREE.Color('#0a0a0c');
+    const targetColor = new THREE.Color('#0a0a0c');
     const currentParticleColor = new THREE.Color('#ffffff');
     const targetParticleColor = new THREE.Color('#ffffff');
 
@@ -479,13 +479,13 @@ export function HeroCanvas() {
       camera.lookAt(0, 0, 0);
       camera.updateMatrixWorld();
 
-      // Detect if user is past Tropicana (entering or inside vertical flow sections below)
-      let pastTropicana = 0;
+      // Detect if user is past horizontal track (entering or inside vertical flow sections below)
+      let pastTrack = 0;
       const servicesEl = document.querySelector<HTMLElement>('.services');
       if (servicesEl) {
         const sTop = servicesEl.getBoundingClientRect().top;
         if (sTop < vh) {
-          pastTropicana = Math.max(0, Math.min(1, (vh - sTop) / (vh * 0.75)));
+          pastTrack = Math.max(0, Math.min(1, (vh - sTop) / (vh * 0.75)));
         }
       }
 
@@ -526,15 +526,15 @@ export function HeroCanvas() {
           vw < 500 ? 0.52 : vw < 850 ? 0.68 : 0.82
         );
 
-        // When scrolling past Tropicana into sections below:
+        // When scrolling past horizontal track into sections below:
         // Expand scale so particles break apart and fill the entire mobile background
         const expandedScale = Math.min(1.05, (visibleWidth * 0.52) / 1.6);
         const baseMobileScale = fitScale * (0.92 + ut * 0.12);
-        scaleMultiplier = THREE.MathUtils.lerp(baseMobileScale, expandedScale, pastTropicana);
+        scaleMultiplier = THREE.MathUtils.lerp(baseMobileScale, expandedScale, pastTrack);
 
         // Center horizontally
         const panelPosX = (-sInfo.cx * scaleMultiplier) * ut;
-        targetPosX = THREE.MathUtils.lerp(panelPosX, 0, pastTropicana);
+        targetPosX = THREE.MathUtils.lerp(panelPosX, 0, pastTrack);
 
         // Vertical position:
         // Inside project panels: placed in upper portion above bottom text
@@ -544,7 +544,7 @@ export function HeroCanvas() {
         const heroOffsetY = visibleHeight * 0.14;
         const panelPosY = shapeOffsetY * ut + heroOffsetY * invUt;
 
-        targetPosY = THREE.MathUtils.lerp(panelPosY, 0, pastTropicana) + Math.sin(elapsed * 0.8) * 0.05;
+        targetPosY = THREE.MathUtils.lerp(panelPosY, 0, pastTrack) + Math.sin(elapsed * 0.8) * 0.05;
       }
 
       constellationGroup.scale.setScalar(scaleMultiplier);
@@ -631,8 +631,8 @@ export function HeroCanvas() {
         let py = sphereY * invUt + shapePosY;
         let pz = sphereZ * invUt + curTargetP.z * ut;
 
-        if (vw < 1024 && pastTropicana > 0) {
-          const disperseAmount = Math.min(1, pastTropicana * 1.15);
+        if (vw < 1024 && pastTrack > 0) {
+          const disperseAmount = Math.min(1, pastTrack * 1.15);
           const dispX = (seedW[i] - 0.5) * 3.6 * disperseAmount + Math.sin(elapsed * 0.6 + phase) * 0.22 * disperseAmount;
           const dispY = (seedP[i] - 0.5) * 4.6 * disperseAmount + Math.cos(elapsed * 0.5 + phase) * 0.22 * disperseAmount;
           const dispZ = (initialSpherePoints[i].z * 1.6 + Math.sin(phase * 2.2) * 1.0) * disperseAmount;
@@ -660,8 +660,8 @@ export function HeroCanvas() {
         linePosArray[i * 6 + 5] = posArray[idx2 * 3 + 2];
       }
       lineGeometry.attributes.position.needsUpdate = true;
-      if (vw < 1024 && pastTropicana > 0) {
-        lineMaterial.opacity = Math.max(0.018, 0.06 * (1 - pastTropicana * 0.6));
+      if (vw < 1024 && pastTrack > 0) {
+        lineMaterial.opacity = Math.max(0.018, 0.06 * (1 - pastTrack * 0.6));
       } else {
         lineMaterial.opacity = 0.06;
       }

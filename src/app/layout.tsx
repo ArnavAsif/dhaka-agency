@@ -19,9 +19,9 @@ const ibmPlexSans = IBM_Plex_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'Imagine. Build. Launch. | Agence F+',
+  title: 'DHAKA AGENCY | Growth-Driven Digital Marketing Experts',
   description:
-    'A communication, AI, development and digital strategy agency. We imagine, build and launch your bespoke digital projects.',
+    'Empowering businesses with data-driven SEO, High-ROI Paid Ads, custom Web Development, and Web Analytics. Built by experts, powered by data, designed to win.',
   icons: {
     icon: [
       { url: '/favicon-32.png', sizes: '32x32', type: 'image/png' },
@@ -30,9 +30,9 @@ export const metadata: Metadata = {
     apple: [{ url: '/favicon-192.png' }],
   },
   openGraph: {
-    title: 'Imagine. Build. Launch. | Agence F+',
+    title: 'DHAKA AGENCY | Growth-Driven Digital Marketing Experts',
     description:
-      'A communication, AI, development and digital strategy agency. We imagine, build and launch your bespoke digital projects.',
+      'Empowering businesses with data-driven SEO, High-ROI Paid Ads, custom Web Development, and Web Analytics. Built by experts, powered by data, designed to win.',
     type: 'website',
   },
 };
@@ -64,7 +64,7 @@ export default function RootLayout({
                 window.scrollTo(0, 0);
               });
               try {
-                if (localStorage.getItem('fplus-theme') === 'light') {
+                if (localStorage.getItem('dhaka-theme') === 'light' || localStorage.getItem('fplus-theme') === 'light') {
                   document.documentElement.classList.add('theme-light');
                 }
               } catch(e) {}

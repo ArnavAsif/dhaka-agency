@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -20,51 +19,53 @@ interface PanelData {
 const PROJECTS_DATA: PanelData[] = [
   {
     shape: 'eighteen',
-    tag: '18 years already…',
-    title: 'BIC × Agence F+',
+    tag: 'Featured Case Study · Paid Marketing',
+    title: 'Aura Apparel — $3.2M Revenue',
     desc: [
-      '2026 marked the 18th year of the partnership between the BIC Group and Agence F+! A solid partnership, unique in our field, symbolising deep mutual trust and a shared vision.',
-      'In 2026 once again, the BIC Group entrusted us with foundational, large-scale projects, reflecting Agence F+\'s position as a go-to agency for the BIC Group. Quite simply: THANK YOU!',
+      'Scaling Luxury Fashion E-Commerce Brand to $3.2M+ Revenue with Meta & Google Ads. Achieved +340% ROAS increase through precision audience segmentation and multivariate creative testing.',
+      'At DHAKA AGENCY, we treat your business like our own. Backed by expert marketers, designers, and developers, our data-driven ad solutions turn ad spend into scalable, predictable revenue surges.',
     ],
+    link: 'Explore Case Study',
   },
   {
     shape: 'glasses',
-    tag: 'Art direction',
-    title: 'Saint Laurent',
+    tag: 'Featured Case Study · SEO Dominance',
+    title: 'FlowMetrics AI — +520% Traffic',
     desc: [
-      'Agence F+ supported the House of Saint Laurent, a flagship of the Kering Group, on a critical, global-scale e-learning project.',
-      'We brought our instructional design expertise and creativity to professional training at Saint Laurent.',
+      'Driving 520% Organic Traffic Growth & 12x Inbound Leads for B2B SaaS Platform. In today’s digital economy, visibility equals credibility—our strategic SEO gets real, lasting market dominance.',
+      'We executed full-funnel technical SEO audits, high-intent keyword clustering, and authority backlink architecture that transformed organic search into a continuous demo engine.',
     ],
-    link: 'View project',
+    link: 'Explore Case Study',
   },
   {
     shape: 'wheel',
-    tag: 'Event platform · Corporate site',
-    title: 'Groupauto International',
+    tag: 'Featured Case Study · Web Engineering',
+    title: 'PayGrid Global — 0.4s Speed',
     desc: [
-      'COVID severely disrupted the organisation of events. With that in mind, in partnership with the agency Collectif Ensemble, we developed a fully automated digital platform for online events, to enable Groupauto International, a leader in the Automotive Aftermarket, to keep holding its meetings and closing its deals.',
-      'Built on a micro-services foundation, the platform runs on Strapi and Nuxt.js. More than 3,500 meetings/deals were organised across the world.',
+      'High-Performance Next.js Web Development & Rebrand for Global Fintech Giant. Delivered sub-0.4s load speed, ultra-secure architecture, and +85% conversion rate surge.',
+      'Your website is your strongest salesperson. We engineer bespoke, mobile-responsive, and blazing-fast web platforms that captivate users and drive commercial results.',
     ],
-    link: 'View project',
+    link: 'Explore Case Study',
   },
   {
     shape: 'pen',
-    tag: 'Corporate site · Strapi + Nuxt.js',
-    title: 'Groupe BIC',
+    tag: 'Conversion Optimization · CRO',
+    title: 'Turn Clicks Into Customers',
     desc: [
-      'Discover the new corporate website of the BIC Group, designed and developed by Agence F+. Using Strapi and Nuxt.js, this multilingual, global-scale site replaces a previous site that had become dated both visually and technically. Our expertise in digital strategy and development guided every step: a clean, simple interface true to the BIC brand\'s DNA, and a very easy-to-use admin interface.',
+      'You’ve got traffic, but are they converting? If not, you don’t have a traffic problem—you have a conversion problem. That’s where Conversion Rate Optimization (CRO) comes in.',
+      'We architect high-converting checkout flows, multivariate A/B testing frameworks, and behavioral heatmaps to eliminate revenue bottlenecks and scale business scalability.',
     ],
-    link: 'View project',
+    link: 'Explore Solutions',
   },
   {
     shape: 'bottle',
-    tag: 'Audiovisual · PepsiCo Group',
-    title: 'Tropicana',
+    tag: 'Data Intelligence · Tracking',
+    title: 'Turn Data Into Growth',
     desc: [
-      'Tropicana (PepsiCo Group) called on Agence F+\'s audiovisual expertise. Our mission: to create a series of internal films presented at the group\'s marketing conventions.',
-      'Through these videos, Tropicana showcased its latest innovations and marketing strategies for the years ahead to its teams.',
+      'Web analytics involves tracking, measuring, and analyzing the behavior of website visitors. Understand your audience with Google Analytics 4, server-side tagging, and user journey attribution.',
+      'We combine high-level technical expertise with transparent reporting dashboards so you track exact ROI on every dollar spent—cloud-based & Dhaka, Bangladesh.',
     ],
-    link: 'View project',
+    link: 'Explore Solutions',
   },
 ];
 
@@ -227,28 +228,26 @@ export function HorizontalTrack() {
         {/* Panel 1: Hero */}
         <section className="hpanel hpanel--bottom hpanel--hold">
           <div className="hpanel__pad hp-fx">
-            <h1 className="hero__logo">
-              <Image
-                src="/images/logo-ondark.png"
-                alt="Agence F+ — communication, AI, development"
-                width={2157}
-                height={526}
-                priority
-              />
+            <h1 className="hero__brand-title">
+              <span className="hero__brand-dhaka">DHAKA</span>{' '}
+              <span className="hero__brand-agency">AGENCY</span>
             </h1>
             <div className="hero__words">
               <span className="hero__word">
-                Imagine<span className="hero__dot hero__dot--gold">.</span>
+                Growth<span className="hero__dot hero__dot--gold">.</span>
               </span>{' '}
               <span className="hero__word">
-                Build<span className="hero__dot hero__dot--teal">.</span>
+                Strategy<span className="hero__dot hero__dot--teal">.</span>
               </span>{' '}
               <span className="hero__word">
-                Launch<span className="hero__dot hero__dot--gold">.</span>
+                Scale<span className="hero__dot hero__dot--gold">.</span>
               </span>
             </div>
             <p className="hero__surtitle">
-              Communication agency · AI · Development · Digital strategy
+              Growth-Driven Digital Agency · Paid Ads · SEO Dominance · Web Engineering · CRO
+            </p>
+            <p className="hero__tagline" style={{ maxWidth: '640px', fontSize: '15px', lineHeight: '1.6', color: 'rgba(255, 255, 255, 0.72)', margin: '0 0 16px' }}>
+              Empowering businesses with data-driven SEO, High-ROI Paid Ads, custom Web Development, and Web Analytics. Built by experts, powered by data, designed to win.
             </p>
             <p className="hero__hint">
               Scroll to explore <span aria-hidden="true">→</span>

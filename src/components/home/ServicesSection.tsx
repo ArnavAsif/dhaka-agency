@@ -3,26 +3,24 @@
 import React, { useEffect, useRef } from 'react';
 
 const ROW_A = [
-  'Artificial Intelligence',
-  'AI agents & LLMs',
-  'Next.js',
-  'React',
-  'TypeScript',
-  'Node.js',
-  'WebGL · Three.js',
-  'GSAP',
+  'Paid Marketing (Meta & Google Ads)',
+  'SEO & Search Engine Dominance',
+  'High-Performance Web Development',
+  'Conversion Rate Optimization (CRO)',
+  'Web Analytics & Data Intelligence',
+  'Graphics & Brand Design',
+  'Next.js & React Engineering',
 ];
 
 const ROW_B = [
-  'Headless CMS · Strapi',
-  'Micro-service architecture',
-  'APIs & integrations',
-  'Jamstack · SSG',
-  'Motion design',
-  'Cinema 4D',
-  'Video production',
-  'Art direction',
-  'UI/UX design',
+  'High-ROI Google & Meta Ads',
+  'Keyword Strategy & Technical SEO',
+  'A/B Testing & Funnel Optimization',
+  'Google Analytics 4 & Server Tagging',
+  'E-Commerce & SaaS Scaling',
+  'Custom UI/UX & Brand Identity',
+  'Heatmaps & User Behavior Analysis',
+  'Predictable Growth & Transparent ROI',
 ];
 
 export function ServicesSection() {
@@ -89,10 +87,13 @@ export function ServicesSection() {
   return (
     <section id="agency" className="services">
       <div className="services__head">
-        <p className="services__kicker">Our expertise</p>
+        <p className="services__kicker">Solutions Engineered for Growth</p>
         <h2 className="services__title">
-          What we do best<span className="services__dot">.</span>
+          What We Master Best<span className="services__dot">.</span>
         </h2>
+        <p style={{ marginTop: '14px', fontSize: '16px', color: 'rgba(255, 255, 255, 0.65)', maxWidth: '680px', marginInline: 'auto' }}>
+          A step-by-step breakdown of how our core digital services drive measurable business scalability and predictable ROI.
+        </p>
       </div>
 
       <div ref={rootRef} className="marquee">

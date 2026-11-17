@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
 
 export function Preloader() {
   const [hidden, setHidden] = useState(false);
@@ -27,15 +26,11 @@ export function Preloader() {
     >
       <div className="loader__aura" />
       <div className="loader__stage">
-        <Image
-          src="/images/logo-ondark.png"
-          alt="Agence F+"
-          className="loader__logo"
-          width={214}
-          height={52}
-          priority
-        />
-        <div className="loader__tag">Imagine · Build · Launch</div>
+        <div className="loader__brand-title">
+          <span className="loader__brand-dhaka">DHAKA</span>{' '}
+          <span className="loader__brand-agency">AGENCY</span>
+        </div>
+        <div className="loader__tag">Experts for Global Business Growth</div>
         <div className="loader__bar">
           <div className="loader__comet" />
         </div>

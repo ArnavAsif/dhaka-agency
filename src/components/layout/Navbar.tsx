@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useTheme } from '@/context/ThemeContext';
 
@@ -54,17 +53,12 @@ export function Navbar({ onNavigate }: NavbarProps) {
         <div className="nav__bar">
           <Link
             href="/"
-            className="nav__logo"
-            aria-label="Agence F+ — home"
+            className="nav__logo nav__brand-title"
+            aria-label="DHAKA AGENCY — home"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-            <Image
-              src="/images/logo-ondark.png"
-              alt="agence f+"
-              width={112}
-              height={32}
-              priority
-            />
+            <span className="nav__brand-dhaka">DHAKA</span>
+            <span className="nav__brand-agency">AGENCY</span>
           </Link>
 
           <div className="nav__actions">
@@ -107,19 +101,14 @@ export function Navbar({ onNavigate }: NavbarProps) {
           <div className="overlay__top">
             <Link
               href="/"
-              className="overlay__logo-link"
+              className="overlay__logo-link overlay__brand-title"
               onClick={() => {
                 setMenuOpen(false);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
             >
-              <Image
-                src="/images/logo-ondark.png"
-                alt="agence f+"
-                className="overlay__logo"
-                width={112}
-                height={32}
-              />
+              <span className="overlay__brand-dhaka">DHAKA</span>
+              <span className="overlay__brand-agency">AGENCY</span>
             </Link>
 
             <button
@@ -155,8 +144,8 @@ export function Navbar({ onNavigate }: NavbarProps) {
           </nav>
 
           <div className="overlay__foot">
-            <a href="mailto:at@fplusagency.com" className="overlay__mail">
-              at@fplusagency.com
+            <a href="mailto:nomaddigitalbd@gmail.com" className="overlay__mail">
+              nomaddigitalbd@gmail.com
             </a>
           </div>
         </div>

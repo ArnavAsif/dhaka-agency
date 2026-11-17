@@ -1,0 +1,12 @@
+<svg width="960" height="150" viewBox="0 0 960 150" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="redGradL" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#991b1b" />
+      <stop offset="100%" stop-color="#7f1d1d" />
+    </linearGradient>
+  </defs>
+  <text x="0" y="112" font-family="'Onest', -apple-system, sans-serif" font-weight="900" font-size="112" letter-spacing="-1">
+    <tspan fill="#0a0a0c">DHAKA</tspan>
+    <tspan dx="28" fill="url(#redGradL)">AGENCY</tspan>
+  </text>
+</svg>

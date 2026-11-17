@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 
 export function Footer() {
@@ -18,19 +17,15 @@ export function Footer() {
         <div className="footer__top">
           <Link
             href="/"
-            className="footer__logo"
-            aria-label="Agence F+ — home"
+            className="footer__logo footer__brand-title"
+            aria-label="DHAKA AGENCY — home"
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
           >
-            <Image
-              src="/images/logo-ondark.png"
-              alt="agence f+"
-              width={105}
-              height={30}
-            />
+            <span className="footer__brand-dhaka">DHAKA</span>{' '}
+            <span className="footer__brand-agency">AGENCY</span>
           </Link>
 
           <nav className="footer__nav">
@@ -42,7 +37,7 @@ export function Footer() {
                 scrollTo('agency');
               }}
             >
-              Agency
+              Services
             </a>
             <a
               href="#work"
@@ -52,17 +47,7 @@ export function Footer() {
                 window.scrollTo({ top: window.innerHeight * 1.5, behavior: 'smooth' });
               }}
             >
-              Clients
-            </a>
-            <a
-              href="#work"
-              className="footer__link"
-              onClick={(e) => {
-                e.preventDefault();
-                window.scrollTo({ top: window.innerHeight * 2, behavior: 'smooth' });
-              }}
-            >
-              Work
+              Case Studies
             </a>
             <a
               href="#agency"
@@ -72,34 +57,33 @@ export function Footer() {
                 scrollTo('agency');
               }}
             >
-              Team
+              Expertise
             </a>
             <a
-              href="#contact"
+              href="mailto:nomaddigitalbd@gmail.com"
               className="footer__link"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollTo('contact');
-              }}
             >
-              Contact
+              nomaddigitalbd@gmail.com
+            </a>
+            <a
+              href="tel:+8801644474317"
+              className="footer__link"
+            >
+              +880 1644-474317
             </a>
           </nav>
         </div>
 
         <div className="footer__bottom">
           <span className="footer__copy">
-            © 2026 Agence F+, Development, Communication and Digital Marketing.
+            © 2026 DHAKA AGENCY. All rights reserved. Built by experts, powered by data, designed to win. · Dhaka, Bangladesh
           </span>
           <div className="footer__legal">
-            <a href="#legal" className="footer__legal-link">
-              Legal notice
-            </a>
             <a href="#privacy" className="footer__legal-link">
-              Privacy policy
+              Privacy Policy
             </a>
             <a href="#terms" className="footer__legal-link">
-              Terms of use
+              Terms & Conditions
             </a>
           </div>
         </div>
